@@ -24,6 +24,8 @@
 		22DDF91F207FF7F7009A0074 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DDF91D207FF7F7009A0074 /* Main.storyboard */; };
 		22DDF921207FF7F8009A0074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DDF920207FF7F8009A0074 /* Assets.xcassets */; };
 		22DDF924207FF7F8009A0074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DDF922207FF7F8009A0074 /* LaunchScreen.storyboard */; };
+		22EECE5B2086256E00470C59 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EECE592086256E00470C59 /* ProfileVC.swift */; };
+		22EECE5C2086256E00470C59 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EECE5A2086256E00470C59 /* ProfileVC.xib */; };
 		50685E26D1397BFA2F8B9149 /* Pods_smack_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E94C4598933B40FD721450 /* Pods_smack_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		22DDF920207FF7F8009A0074 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22DDF923207FF7F8009A0074 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22DDF925207FF7F8009A0074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22EECE592086256E00470C59 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		22EECE5A2086256E00470C59 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		44E94C4598933B40FD721450 /* Pods_smack_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smack_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63F3F3DCBA22FAAE1D28E95 /* Pods-smack-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-smack-app/Pods-smack-app.release.xcconfig"; sourceTree = "<group>"; };
 		F372FB36810D99BD25B5121C /* Pods-smack-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smack-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smack-app/Pods-smack-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				2257EBD82083C2D100FF916C /* LoginVC.swift */,
 				2257EBDA2083C44100FF916C /* CreateAccountVC.swift */,
 				2257EBE320852E7700FF916C /* AvatarPickerVC.swift */,
+				22EECE592086256E00470C59 /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 		22DDF918207FF7F7009A0074 /* smack-app */ = {
 			isa = PBXGroup;
 			children = (
+				22EECE5D2086258E00470C59 /* XIBs */,
 				2257EBDC2084E89C00FF916C /* Services */,
 				2257EBD52083BF7F00FF916C /* Utilities */,
 				2257EBCC2083B32300FF916C /* Model */,
@@ -165,6 +171,14 @@
 				22DDF925207FF7F8009A0074 /* Info.plist */,
 			);
 			path = "smack-app";
+			sourceTree = "<group>";
+		};
+		22EECE5D2086258E00470C59 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				22EECE5A2086256E00470C59 /* ProfileVC.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		4910C8B3EAA867826C703E9C /* Pods */ = {
@@ -237,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EECE5C2086256E00470C59 /* ProfileVC.xib in Resources */,
 				22DDF924207FF7F8009A0074 /* LaunchScreen.storyboard in Resources */,
 				22DDF921207FF7F8009A0074 /* Assets.xcassets in Resources */,
 				22DDF91F207FF7F7009A0074 /* Main.storyboard in Resources */,
@@ -295,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EECE5B2086256E00470C59 /* ProfileVC.swift in Sources */,
 				2257EBD22083B36700FF916C /* ChannelVC.swift in Sources */,
 				2257EBE420852E7700FF916C /* AvatarPickerVC.swift in Sources */,
 				2257EBE020850A1D00FF916C /* RoundedButton.swift in Sources */,
