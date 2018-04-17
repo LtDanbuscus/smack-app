@@ -38,6 +38,9 @@ class LoginVC: UIViewController {
                     }
                 })
             } // LOGIN FAILURE
+            else {
+                print("login failure")
+            }
         }
         
     }
