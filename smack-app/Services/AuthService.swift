@@ -27,7 +27,7 @@ class AuthService {
     
     var authToken: String {
         get {
-            return defaults.value(forKey: TOKEN_KEY) as? String ?? "" // causes issue with creating a new user?
+            return defaults.value(forKey: TOKEN_KEY) as? String ?? "" // causes issue with creating a new user? Not experiencing it right now.
         }
         set {
             defaults.set(newValue, forKey: TOKEN_KEY)
@@ -36,7 +36,7 @@ class AuthService {
     
     var userEmail: String {
         get {
-            return defaults.value(forKey: USER_EMAIL) as? String ?? "" // causes issue with creating a new user?
+            return defaults.value(forKey: USER_EMAIL) as? String ?? "" // causes issue with creating a new user? Not experiencing it right now.
         }
         set {
             defaults.set(newValue, forKey: USER_EMAIL)
