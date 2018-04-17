@@ -442,6 +442,10 @@
                                     <action selector="pickBGColorPressed:" destination="blI-K2-HWF" eventType="touchUpInside" id="7SM-yE-V14"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O1B-VR-mid">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.52549019610000003" green="0.52941176469999995" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -452,7 +456,9 @@
                             <constraint firstItem="e3H-ck-rrS" firstAttribute="centerX" secondItem="ZMe-7l-A5s" secondAttribute="centerX" id="8Bi-Gd-cks"/>
                             <constraint firstItem="P4l-gr-7bG" firstAttribute="centerX" secondItem="ZMe-7l-A5s" secondAttribute="centerX" id="AVw-j5-KNz"/>
                             <constraint firstItem="1wu-oR-ug2" firstAttribute="centerX" secondItem="ZMe-7l-A5s" secondAttribute="centerX" id="C0i-0j-lI0"/>
+                            <constraint firstItem="O1B-VR-mid" firstAttribute="centerY" secondItem="ZMe-7l-A5s" secondAttribute="centerY" constant="-100" id="H46-KX-PdQ"/>
                             <constraint firstItem="9AD-7V-yr9" firstAttribute="centerX" secondItem="ZMe-7l-A5s" secondAttribute="centerX" id="SAZ-Lc-36b"/>
+                            <constraint firstItem="O1B-VR-mid" firstAttribute="centerX" secondItem="ZMe-7l-A5s" secondAttribute="centerX" id="Scp-Ln-Bdr"/>
                             <constraint firstItem="e3H-ck-rrS" firstAttribute="width" secondItem="YTq-8y-Nia" secondAttribute="width" id="Tbb-fV-1z2"/>
                             <constraint firstItem="N6x-tl-4LS" firstAttribute="trailing" secondItem="txK-64-BBh" secondAttribute="trailing" constant="16" id="Txs-1e-DyP"/>
                             <constraint firstItem="txK-64-BBh" firstAttribute="top" secondItem="N6x-tl-4LS" secondAttribute="top" constant="8" id="W0a-u4-cEn"/>
@@ -466,6 +472,7 @@
                     <connections>
                         <outlet property="emailTxt" destination="OmW-re-eZS" id="gda-9s-zOa"/>
                         <outlet property="passTxt" destination="Xst-JK-1Ct" id="ddy-xd-SCg"/>
+                        <outlet property="spinner" destination="O1B-VR-mid" id="9mO-FJ-6wb"/>
                         <outlet property="userImg" destination="YTq-8y-Nia" id="Xf1-i8-hL9"/>
                         <outlet property="usernameTxt" destination="StU-k8-hAz" id="Hw8-B7-uam"/>
                         <segue destination="xfX-ce-5aP" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="qmw-3R-uU9"/>
