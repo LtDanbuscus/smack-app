@@ -46,6 +46,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if AuthService.instance.isLoggedIn {
             let addChannel = AddChannelVC()
             addChannel.modalPresentationStyle = .custom
+            addChannel.modalTransitionStyle = .crossDissolve
             present(addChannel, animated: true, completion: nil)
         }
     }
@@ -54,6 +55,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if AuthService.instance.isLoggedIn {
             let profile = ProfileVC()
             profile.modalPresentationStyle = .custom
+            profile.modalTransitionStyle = .crossDissolve
             present(profile, animated: true, completion: nil)
         } else {
             performSegue(withIdentifier: TO_LOGIN, sender: nil)

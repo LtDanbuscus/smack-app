@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tg-yP-bHA">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tg-yP-bHA" customClass="RoundedView" customModule="smack_app" customModuleProvider="target">
                     <rect key="frame" x="20" y="124" width="335" height="320"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Wmi-Z6-8eD">
@@ -119,6 +119,11 @@
                         <constraint firstItem="Wmi-Z6-8eD" firstAttribute="centerY" secondItem="8tg-yP-bHA" secondAttribute="centerY" constant="-10" id="s1C-ak-63l"/>
                         <constraint firstItem="pgi-UK-dgI" firstAttribute="top" secondItem="8tg-yP-bHA" secondAttribute="top" constant="8" id="yHe-h4-ExN"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
