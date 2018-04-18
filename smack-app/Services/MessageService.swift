@@ -25,6 +25,7 @@ class MessageService {
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 
+                // Newer way of reading JSON
 //                do {
 //                    self.channels = try JSONDecoder().decode([Channel].self, from: data)
 //                } catch let error {
