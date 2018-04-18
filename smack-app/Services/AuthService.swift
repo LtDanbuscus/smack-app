@@ -90,6 +90,7 @@ class AuthService {
                     if json["message"].string != nil {
                         self.isLoggedIn = false
                         completion(false)
+                        // Dev branch change
                     } else {
                         self.userEmail = json["user"].stringValue
                         self.authToken = json["token"].stringValue
