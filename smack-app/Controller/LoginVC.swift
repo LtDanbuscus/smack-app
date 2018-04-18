@@ -37,9 +37,14 @@ class LoginVC: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     }
                 })
-            } // LOGIN FAILURE
+            }
+                
+            // LOGIN FAILURE
             else {
                 print("login failure")
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+                self.dismiss(animated: true, completion: nil)
             }
         }
         

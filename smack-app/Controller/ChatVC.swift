@@ -81,7 +81,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } else {
                 self.typingUsersLbl.text = ""
             }
-            
         }
         
         if AuthService.instance.isLoggedIn {
@@ -139,6 +138,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     self.messageTxtBox.text = ""
                     self.messageTxtBox.resignFirstResponder()
                     self.sendBtn.isHidden = true
+                    self.isTyping = false
                     SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
                 }
             }
@@ -160,9 +160,18 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        guard let channelName = MessageService.instance.selectedChannel?.channelTitle else { return }
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
             if success {
                 self.tableView.reloadData()
+                
+                // Scroll to bottom of chat anytime a channel is selected.
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
+                
+                self.messageTxtBox.placeholder = "Message #\(channelName)"
             }
         }
     }

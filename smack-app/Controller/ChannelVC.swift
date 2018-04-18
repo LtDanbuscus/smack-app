@@ -106,6 +106,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if MessageService.instance.unreadChannels.count > 0 {
             MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter{$0 != channel.id}
         }
+        
         let index = IndexPath(item: indexPath.row, section: 0)
         tableView.reloadRows(at: [index], with: .none)
         tableView.selectRow(at: index, animated: false, scrollPosition: .none)

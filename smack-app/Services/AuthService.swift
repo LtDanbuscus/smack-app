@@ -84,15 +84,27 @@ class AuthService {
                 
                 // Using SwiftyJSON
                 guard let data = response.data else { return }
-                let json = try! JSON(data: data)
-                self.userEmail = json["user"].stringValue
-                self.authToken = json["token"].stringValue
-
-                self.isLoggedIn = true
-                completion(true)
+                do {
+                    let json = try JSON(data: data)
+                    
+                    // Login failed
+                    if json["message"].string != nil {
+                        self.isLoggedIn = false
+                        completion(false)
+                    } else {
+                        self.userEmail = json["user"].stringValue
+                        self.authToken = json["token"].stringValue
+                        self.isLoggedIn = true
+                        completion(true)
+                    }
+                } catch {
+                    self.isLoggedIn = false
+                    debugPrint(error as Any)
+                    completion(false)
+                }
             } else {
-                completion(false)
                 debugPrint(response.result.error as Any)
+                completion(false)
             }
         }
     }
@@ -114,8 +126,8 @@ class AuthService {
                 self.setUserInfo(data: data)
                 completion(true)
             } else {
-                completion(false)
                 debugPrint(response.result.error as Any)
+                completion(false)
             }
         }
     }
@@ -135,13 +147,20 @@ class AuthService {
     }
     
     func setUserInfo(data: Data) {
-        let json = try! JSON(data: data)
-        let id = json["_id"].stringValue
-        let color = json["avatarColor"].stringValue
-        let avatarName = json["avatarName"].stringValue
-        let email = json["email"].stringValue
-        let name = json["name"].stringValue
+        do {
+            let json = try JSON(data: data)
+            let id = json["_id"].stringValue
+            let color = json["avatarColor"].stringValue
+            let avatarName = json["avatarName"].stringValue
+            let email = json["email"].stringValue
+            let name = json["name"].stringValue
+            
+            UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+        } catch {
+            debugPrint(error as Any)
+        }
         
-        UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+        
+        
     }
 }

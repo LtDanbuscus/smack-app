@@ -34,17 +34,22 @@ class MessageService {
 //                print()
                 
                 // Swifty JSON
-                if let json = try! JSON(data: data).array {
-                    for item in json {
-                        let name = item["name"].stringValue
-                        let channelDescription = item["description"].stringValue
-                        let id = item["_id"].stringValue
-                        let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
-                        self.channels.append(channel)
+                do {
+                    if let json = try JSON(data: data).array {
+                        for item in json {
+                            let name = item["name"].stringValue
+                            let channelDescription = item["description"].stringValue
+                            let id = item["_id"].stringValue
+                            let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
+                            self.channels.append(channel)
+                        }
+                        //print(self.channels[0].channelTitle)
+                        NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
+                        completion(true)
                     }
-                    //print(self.channels[0].channelTitle)
-                    NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
-                    completion(true)
+                } catch {
+                    debugPrint(error as Any)
+                    completion(false)
                 }
             } else {
                 debugPrint(response.result.error as Any)
@@ -59,21 +64,26 @@ class MessageService {
                 
                 self.clearMessages()
                 guard let data = response.data else { return }
-                if let json = try! JSON(data: data).array {
-                    for item in json {
-                        let messageBody = item["messageBody"].stringValue
-                        let channelId = item["channelId"].stringValue
-                        let id = item["_id"].stringValue
-                        let userName = item["userName"].stringValue
-                        let userAvatar = item["userAvatar"].stringValue
-                        let userAvatarColor = item["userAvatarColor"].stringValue
-                        let timeStamp = item["timeStamp"].stringValue
-                        
-                        let message = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
-                        self.messages.append(message)
+                do {
+                    if let json = try JSON(data: data).array {
+                        for item in json {
+                            let messageBody = item["messageBody"].stringValue
+                            let channelId = item["channelId"].stringValue
+                            let id = item["_id"].stringValue
+                            let userName = item["userName"].stringValue
+                            let userAvatar = item["userAvatar"].stringValue
+                            let userAvatarColor = item["userAvatarColor"].stringValue
+                            let timeStamp = item["timeStamp"].stringValue
+                            
+                            let message = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+                            self.messages.append(message)
+                        }
+                        //print(self.messages)
+                        completion(true)
                     }
-                    //print(self.messages)
-                    completion(true)
+                } catch {
+                    debugPrint(error as Any)
+                    completion(false)
                 }
             } else {
                 debugPrint(response.result.error as Any)
