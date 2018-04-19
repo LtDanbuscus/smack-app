@@ -61,7 +61,7 @@ class LoginVC: UIViewController {
         self.spinner.isHidden = true
         self.spinner.stopAnimating()
         
-        let loginFailure = LoginFailureAlertVC()
+        let loginFailure = AlertVC(title: AuthService.instance.message, message: "This will disappear in ", time: 5)
         loginFailure.modalPresentationStyle = .custom
         loginFailure.modalTransitionStyle = .crossDissolve
         self.present(loginFailure, animated: true, completion: nil)

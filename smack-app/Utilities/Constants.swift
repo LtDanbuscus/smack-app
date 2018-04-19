@@ -11,7 +11,7 @@ import Foundation
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // Debug Flag
-let DEBUG_FLAG = true
+let DEBUG_FLAG = false
 
 // URL Constants
 let BASE_URL = "https://smack-chat-ds.herokuapp.com/v1/"

@@ -1,5 +1,5 @@
 //
-//  LoginFailureAlertVC.swift
+//  AlertVC.swift
 //  smack-app
 //
 //  Created by Dan Sims on 4/18/18.
@@ -8,12 +8,13 @@
 
 import Foundation
 
-class LoginFailureAlertVC: UIViewController {
+class AlertVC: UIViewController {
     
     var alertController: UIAlertController?
     var alertTimer: Timer?
     var remainingTime = 0
     var baseMessage: String?
+    var alertTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,22 @@ class LoginFailureAlertVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.showAlertMsg(title: AuthService.instance.message, message: "This will disappear in ", time: 5)
+//        self.showAlertMsg(title: AuthService.instance.message, message: "This will disappear in ", time: 5)
+        guard let title = self.alertTitle else { return }
+        guard let message = self.baseMessage else { return }
+        let time = remainingTime
+        self.showAlertMsg(title: title, message: message, time: time)
+    }
+    
+    init(title: String, message: String, time: Int) {
+        super.init(nibName: nil, bundle: nil)
+        self.baseMessage = message
+        self.remainingTime = time
+        self.alertTitle = title
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,7 +64,7 @@ class LoginFailureAlertVC: UIViewController {
         
         self.alertController!.addAction(cancelAction)
         
-        self.alertTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(LoginFailureAlertVC.countDown), userInfo: nil, repeats: true)
+        self.alertTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(AlertVC.countDown), userInfo: nil, repeats: true)
         
         self.present(self.alertController!, animated: true, completion: nil)
     }

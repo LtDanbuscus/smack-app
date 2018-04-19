@@ -48,6 +48,11 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             addChannel.modalPresentationStyle = .custom
             addChannel.modalTransitionStyle = .crossDissolve
             present(addChannel, animated: true, completion: nil)
+        } else {
+            let loginFailure = AlertVC(title: "You must be logged in to add a channel", message: "This will disappear in ", time: 5)
+            loginFailure.modalPresentationStyle = .custom
+            loginFailure.modalTransitionStyle = .crossDissolve
+            self.present(loginFailure, animated: true, completion: nil)
         }
     }
     
