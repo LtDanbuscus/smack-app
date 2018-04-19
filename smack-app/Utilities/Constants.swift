@@ -10,6 +10,9 @@ import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
+// Debug Flag
+let DEBUG_FLAG = true
+
 // URL Constants
 let BASE_URL = "https://smack-chat-ds.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
@@ -37,6 +40,7 @@ let TO_AVATAR_PICKER = "toAvatarPicker"
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let MESSAGE = "message"
 
 // Headers
 let HEADER = [

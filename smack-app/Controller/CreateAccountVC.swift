@@ -46,13 +46,13 @@ class CreateAccountVC: UIViewController {
         
         AuthService.instance.registerUser(email: email, password: pass) { (success) in
             if success {
-                //print("registered user!")
+                if DEBUG_FLAG { print("registered user!") }
                 AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
                     if success {
-                        //print("logged in user!", AuthService.instance.authToken)
+                        if DEBUG_FLAG { print("logged in user!", AuthService.instance.authToken) }
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success {
-                                //print(UserDataService.instance.name, UserDataService.instance.avatarName)
+                                if DEBUG_FLAG { print(UserDataService.instance.name, UserDataService.instance.avatarName) }
                                 self.spinner.isHidden = true
                                 self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
