@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smack-app/Controller/ChatVC.swift"
-            timestampString = "545756509.459484"
+            timestampString = "545789072.984973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smack-app/Services/AuthService.swift"
-            timestampString = "545756509.459872"
+            timestampString = "545789361.655571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "loginUser(email:password:completion:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -24,8 +24,8 @@ class LoginVC: UIViewController {
         spinner.isHidden = false
         spinner.startAnimating()
         
-        guard let email = usernameTxt.text , usernameTxt.text != "" else { return }
-        guard let pass = passwordTxt.text , passwordTxt.text != "" else { return }
+        guard let email = usernameTxt.text , usernameTxt.text != "" else { self.loginFailure(); return }
+        guard let pass = passwordTxt.text , passwordTxt.text != "" else { self.loginFailure(); return }
         
         AuthService.instance.loginUser(email: email, password: pass) { (success) in
             if success {
@@ -41,10 +41,8 @@ class LoginVC: UIViewController {
                 
             // LOGIN FAILURE
             else {
-                print("login failure")
-                self.spinner.isHidden = true
-                self.spinner.stopAnimating()
-                self.dismiss(animated: true, completion: nil)
+                self.loginFailure()
+//                self.dismiss(animated: true, completion: nil)
             }
         }
         
@@ -56,6 +54,17 @@ class LoginVC: UIViewController {
     
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
+    }
+    
+    func loginFailure() {
+        if DEBUG_FLAG { print("login failure") }
+        self.spinner.isHidden = true
+        self.spinner.stopAnimating()
+        
+        let loginFailure = LoginFailureAlertVC()
+        loginFailure.modalPresentationStyle = .custom
+        loginFailure.modalTransitionStyle = .crossDissolve
+        self.present(loginFailure, animated: true, completion: nil)
     }
     
     func setupView() {

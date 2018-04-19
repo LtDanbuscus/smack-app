@@ -43,7 +43,7 @@ class MessageService {
                             let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
                             self.channels.append(channel)
                         }
-                        //print(self.channels[0].channelTitle)
+                        if DEBUG_FLAG { print(self.channels[0].channelTitle) }
                         NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
                         completion(true)
                     }
@@ -78,7 +78,6 @@ class MessageService {
                             let message = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
                             self.messages.append(message)
                         }
-                        //print(self.messages)
                         completion(true)
                     }
                 } catch {

@@ -27,7 +27,7 @@ class AuthService {
     
     var authToken: String {
         get {
-            return defaults.value(forKey: TOKEN_KEY) as? String ?? "" // causes issue with creating a new user? Not experiencing it right now.
+            return defaults.value(forKey: TOKEN_KEY) as? String ?? ""
         }
         set {
             defaults.set(newValue, forKey: TOKEN_KEY)
@@ -36,10 +36,19 @@ class AuthService {
     
     var userEmail: String {
         get {
-            return defaults.value(forKey: USER_EMAIL) as? String ?? "" // causes issue with creating a new user? Not experiencing it right now.
+            return defaults.value(forKey: USER_EMAIL) as? String ?? ""
         }
         set {
             defaults.set(newValue, forKey: USER_EMAIL)
+        }
+    }
+    
+    var message: String {
+        get {
+            return defaults.value(forKey: MESSAGE) as? String ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: MESSAGE)
         }
     }
     
@@ -82,16 +91,20 @@ class AuthService {
 //                }
                 
                 // Using SwiftyJSON
+                
                 guard let data = response.data else { return }
+                guard let statusCode = response.response?.statusCode else { return }
                 do {
                     let json = try JSON(data: data)
                     
                     // Login failed
-                    if json["message"].string != nil {
+                    //if json["message"].string != nil {
+                    if statusCode == 401 {
+                        self.message = json["message"].stringValue
                         self.isLoggedIn = false
                         completion(false)
-                        // Dev branch change
-                    } else {
+
+                    } else if statusCode == 200 {
                         self.userEmail = json["user"].stringValue
                         self.authToken = json["token"].stringValue
                         self.isLoggedIn = true

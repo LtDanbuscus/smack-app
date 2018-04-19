@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224D2F1B208800DE0026816F /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2F1A208800DE0026816F /* RoundedView.swift */; };
+		224D2F20208810E70026816F /* LoginFailureAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2F1E208810E70026816F /* LoginFailureAlertVC.swift */; };
+		224D2F21208810E70026816F /* LoginFailureAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224D2F1F208810E70026816F /* LoginFailureAlertVC.xib */; };
 		2257EBD02083B35400FF916C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257EBCF2083B35400FF916C /* ChatVC.swift */; };
 		2257EBD22083B36700FF916C /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257EBD12083B36700FF916C /* ChannelVC.swift */; };
 		2257EBD42083B78100FF916C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257EBD32083B78100FF916C /* GradientView.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224D2F1A208800DE0026816F /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		224D2F1E208810E70026816F /* LoginFailureAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFailureAlertVC.swift; sourceTree = "<group>"; };
+		224D2F1F208810E70026816F /* LoginFailureAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginFailureAlertVC.xib; sourceTree = "<group>"; };
 		2257EBCF2083B35400FF916C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		2257EBD12083B36700FF916C /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		2257EBD32083B78100FF916C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 				2257EBE320852E7700FF916C /* AvatarPickerVC.swift */,
 				22EECE592086256E00470C59 /* ProfileVC.swift */,
 				22EECE642086423D00470C59 /* AddChannelVC.swift */,
+				224D2F1E208810E70026816F /* LoginFailureAlertVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 				22EECE6220863E9300470C59 /* ChannelCell.swift */,
 				22EECE6C2086863F00470C59 /* KeyboardBoundView.swift */,
 				22EECE6E20868A5100470C59 /* MessageCell.swift */,
+				224D2F1A208800DE0026816F /* RoundedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +212,7 @@
 			children = (
 				22EECE5A2086256E00470C59 /* ProfileVC.xib */,
 				22EECE652086423D00470C59 /* AddChannelVC.xib */,
+				224D2F1F208810E70026816F /* LoginFailureAlertVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224D2F21208810E70026816F /* LoginFailureAlertVC.xib in Resources */,
 				22EECE672086423D00470C59 /* AddChannelVC.xib in Resources */,
 				22EECE5C2086256E00470C59 /* ProfileVC.xib in Resources */,
 				22DDF924207FF7F8009A0074 /* LaunchScreen.storyboard in Resources */,
@@ -338,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224D2F20208810E70026816F /* LoginFailureAlertVC.swift in Sources */,
 				22EECE6D2086864000470C59 /* KeyboardBoundView.swift in Sources */,
 				22EECE6920865CC800470C59 /* SocketService.swift in Sources */,
 				22EECE5B2086256E00470C59 /* ProfileVC.swift in Sources */,
@@ -346,6 +357,7 @@
 				2257EBE420852E7700FF916C /* AvatarPickerVC.swift in Sources */,
 				22EECE6F20868A5100470C59 /* MessageCell.swift in Sources */,
 				2257EBE020850A1D00FF916C /* RoundedButton.swift in Sources */,
+				224D2F1B208800DE0026816F /* RoundedView.swift in Sources */,
 				22EECE6B20867F1100470C59 /* Message.swift in Sources */,
 				22EECE61208635B600470C59 /* Channel.swift in Sources */,
 				2257EBE820853BCC00FF916C /* CircleImage.swift in Sources */,
